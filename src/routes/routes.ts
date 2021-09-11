@@ -4,11 +4,14 @@ import { requestCovidStats } from "../utils/axios";
 import { IcovidStats } from "../utils/interfaces";
 import User from "../models/user";
 import Stats from "../models/stats";
+import stats from "./stats/stats";
 const routes: Router = Router();
 
 routes.use("/auth", auth);
 
-routes.get("/statistics", async (req: Request, res: Response) => {
+routes.use('/stats', stats)
+
+/* routes.get("/statistics", async (req: Request, res: Response) => {
   const info: IcovidStats | string = await requestCovidStats();
   return res.json(info);
   //return res.json('stats')
@@ -16,13 +19,14 @@ routes.get("/statistics", async (req: Request, res: Response) => {
 
 routes.post("/statistics", (req: Request, res: Response) => {
   return res.json("stats posted");
-});
+}); */
 
 routes.get("/sync", async (req: Request, res: Response) => {
   await Stats.deleteMany({});
   const covidSyncedStats: any = await requestCovidStats();
   for (let country of covidSyncedStats.response) {
     try {
+      country.country = country.country.toLowerCase();
       const DBsyncedStats = new Stats(country);
       await DBsyncedStats.save();
       console.log("Country successfully added: ", country.country);
