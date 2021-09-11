@@ -11,7 +11,10 @@ require("dotenv").config();
 export const secretEnv: any = process.env.JWT_SECRET;
 const alg: TAlgorithm = "HS512";
 
-export const encodeSession = (secret: string, partialSession: PartialSession): EncodeResult => {
+export const encodeSession = (
+  secret: string,
+  partialSession: PartialSession
+): EncodeResult => {
   const issued = Date.now();
   const tokenLife = 15 * 60 * 1000; /* 15 min */
   const expDate = issued + tokenLife;
@@ -109,7 +112,10 @@ export const authMiddleware = (
   let session: Isession;
 
   if (exp === "grace") {
-    const { token, expires, issued } = encodeSession(secretEnv, decoded.session);
+    const { token, expires, issued } = encodeSession(
+      secretEnv,
+      decoded.session
+    );
     session = {
       ...decoded.session,
       expires,
@@ -120,8 +126,8 @@ export const authMiddleware = (
     session = decoded.session;
   }
   res.locals = {
-      ...res.locals,
-      session
-  }
-  next()
+    ...res.locals,
+    session,
+  };
+  next();
 };
