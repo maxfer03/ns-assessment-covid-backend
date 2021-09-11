@@ -49,7 +49,7 @@ start: run it with js
 
  * ~~Hash passwords.~~ **DONE ✔**
  
- * Validate Pw before issuing a JWT.
+ * ~~Validate Pw before issuing a JWT.~~ **DONE ✔**
 
  * ~~The source code must be a GitHub repository publicly available containing backend code only.~~ **DONE ✔**
 

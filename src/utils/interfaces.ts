@@ -1,3 +1,5 @@
+import { ObjectId } from "bson";
+
 export interface IcovidStats {
   get:          string;
   parameters?:  any;
@@ -40,3 +42,5 @@ export interface Iuser {
    username:     string;
    password:     string;
 }
+
+

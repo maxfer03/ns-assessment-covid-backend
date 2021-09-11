@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { Iuser } from "../../utils/interfaces";
 import User from "../../models/user";
-import { hashPw } from "../../utils/hash";
+import { hashPw, validatePw } from "../../utils/hash";
 
 const auth: Router = Router();
 
@@ -9,8 +9,29 @@ auth.get("/", (req: Request, res: Response) => {
   return res.send("auth path");
 });
 
-auth.post("/login", (req: Request, res: Response) => {
-  return res.json("log in");
+auth.post("/login", async (req: Request, res: Response) => {
+  const user: Iuser = {
+    username: req.body.username,
+    password: req.body.password,
+  };
+
+  try {
+    const results: any = await User.findOne({ username: user.username });
+    console.log(results);
+    if (results) {
+      const valid = await validatePw(user.password, results.password);
+      if (valid) {
+        //here goes the jwt
+        return res.json(`${user.username} logged in.`);
+      } else {
+        return res.status(400).send("ERROR. Invalid password");
+      }
+    }
+    return res.status(404).send("ERROR. User not found");
+  } catch (e) {
+    console.log(e);
+    return res.status(400).send(e);
+  }
 });
 
 auth.post("/signup", async (req: Request, res: Response) => {
@@ -26,6 +47,7 @@ auth.post("/signup", async (req: Request, res: Response) => {
       const hashedPw: string = await hashPw(password);
       const newUser = new User({ username, password: hashedPw });
       await newUser.save();
+      //here goes the jwt
       return res.json(`User ${username} created.`);
     } catch (e) {
       console.log(e);
