@@ -35,29 +35,23 @@ stats.post("/edit/:country", async (req: Request, res: Response) => {
   });
 });
 
+stats.get("/sync", async (req: Request, res: Response) => {
+  await Stats.deleteMany({});
+  const covidSyncedStats: any = await requestCovidStats();
+  for (let country of covidSyncedStats.response) {
+    try {
+      country.country = country.country.toLowerCase();
+      const DBsyncedStats = new Stats(country);
+      await DBsyncedStats.save();
+      console.log("Country successfully added: ", country.country);
+    } catch (e) {
+      console.log(e);
+      return res.status(400).send("ERROR!");
+    }
+  }
+  return res.send('Stats sinced successfully.');
+});
+
+
 export default stats;
 
-/* const testObject = {
-    continent: 'eurasia',
-    country: 'polonia',
-    population: 111123,
-    cases: {
-      new: '10000',
-      active: 1323,
-      critical: 1323,
-      recovered: 13223,
-      "1M_pop": 'te00st',
-      total: 1323,
-    },
-    deaths: {
-      new: 'eeee',
-      "1M_pop": 'te2331st',
-      total: 123,
-    },
-    tests: {
-      "1M_pop": 'te322st',
-      total: 123,
-    },
-    day: "tes322t",
-    time: "tes322t",
-  }; */

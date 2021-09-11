@@ -30,7 +30,7 @@ routes.get("/sync", authMiddleware, async (req: Request, res: Response) => {
   return res.send('Stats sinced successfully.');
 });
 
-routes.get("/users", async (req: Request, res: Response) => {
+routes.get("/users", authMiddleware, async (req: Request, res: Response) => {
   const users = await User.find();
   return res.json(users);
 });
