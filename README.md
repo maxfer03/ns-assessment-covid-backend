@@ -23,13 +23,13 @@ start: run it with js
 
 ### Required endpoints:
 
- * _/statistics (protected) GET - **IN PROGRESS**_
+ * _/statistics (protected) GET - **IN PROGRESS (to do: jwt)**_
 
- * _/statistics/{country-id} (protected) GET, POST - **IN PROGRESS**_
+ * _/statistics/{country-id} (protected) GET, POST - **IN PROGRESS (to do: jwt)**_
 
  * _/sync (protected) GET - **IN PROGRESS (to do: jwt)**_
 
- * _/auth/login (public) POST - **IN PROGRESS**_
+ * _/auth/login (public) POST - **IN PROGRESS (to do: jwt)**_
 
  * _/auth/signup (public) POST - **IN PROGRESS (to do: jwt)**_
 
@@ -39,9 +39,9 @@ start: run it with js
 
  * _Use ES6 or Typescript syntax - **IN PROGRESS**_
 
- * Save RapidApi's data in personal mongoDB.
+ * ~~Save RapidApi's data in personal mongoDB.~~ **DONE ✔**
 
- * _Create DB Schemas - **IN PROGRESS**_
+ * ~~Create DB Schemas.~~ **DONE ✔**
 
  * ~~The solution should have CORS enabled.~~ **DONE ✔**
 
