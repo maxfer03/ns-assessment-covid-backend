@@ -2,6 +2,7 @@ import { Router, Request, Response } from "express";
 import { Iuser } from "../../utils/interfaces";
 import User from "../../models/user";
 import { hashPw, validatePw } from "../../utils/hash";
+import { encodeSession, secretEnv } from "../../utils/jwtUtils";
 
 const auth: Router = Router();
 
@@ -22,7 +23,14 @@ auth.post("/login", async (req: Request, res: Response) => {
       const valid = await validatePw(user.password, results.password);
       if (valid) {
         //here goes the jwt
-        return res.json(`${user.username} logged in.`);
+        const session = encodeSession(secretEnv, {
+          username: user.username,
+          dateCreated: Date.now(),
+        });
+        return res.json({
+          msg: `${user.username} logged in.`,
+          token: session,
+        });
       } else {
         return res.status(400).send("ERROR. Invalid password");
       }

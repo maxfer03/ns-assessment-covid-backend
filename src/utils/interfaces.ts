@@ -50,7 +50,6 @@ export interface Iuser {
 }
 
 export interface Isession {
-  id: number;
   dateCreated: number;
   username: string;
   issued: number;

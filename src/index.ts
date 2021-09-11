@@ -3,6 +3,7 @@ require('dotenv').config()
 var morgan = require('morgan')
 import express from "express";
 import routes from "./routes/routes";
+import { authMiddleware, encodeSession } from "./utils/jwtUtils";
 import { connectToMongoAtlas } from "./db";
 import cors from 'cors';
 
