@@ -12,14 +12,23 @@ auth.post("/login", (req: Request, res: Response) => {
   return res.json("log in");
 });
 
-auth.post("/signup", (req: Request, res: Response) => {
-  const user: Iuser = req.body;
-  console.log(user);
-  if (!user) {
-    return res.status(400).send("ERROR: Empty user.");
+auth.post("/signup", async (req: Request, res: Response) => {
+  const user: Iuser = {
+    username: req.body.username,
+    password: req.body.password,
+  };
+  if (!user.password || !user.username) {
+    return res.status(400).send("ERROR: Invalid user.");
   } else {
-    
-    return res.json(`User ${user.username} created.`);
+    try {
+        const {username, password} = user
+        const newUser =  new User({username, password})
+        await newUser.save()
+      return res.json(`User ${user.username} created.`);
+    } catch (e) {
+      console.log(e);
+      return res.status(400).send(e)
+    }
   }
 });
 
