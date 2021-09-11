@@ -9,7 +9,7 @@ const routes: Router = Router()
 routes.use('/auth', auth)
 
 routes.get('/statistics', async (req, res) => {
-    const info: IcovidStats = await requestCovidStats()
+    const info: IcovidStats | string = await requestCovidStats()
     return res.json(info)
     //return res.json('stats')
 })
