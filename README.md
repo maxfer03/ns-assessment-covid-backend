@@ -23,15 +23,15 @@ start: run it with js
 
 ### Required endpoints:
 
- * _/statistics (protected) GET - **IN PROGRESS (to do: jwt)**_
+ * ~~/statistics (protected) GET~~ **DONE ✔**
 
- * _/statistics/{country-id} (protected) GET, POST - **IN PROGRESS (to do: jwt)**_
+ * ~~/statistics/{country-id}~~ (protected) GET, POST - **DONE ✔**
 
- * _/sync (protected) GET - **IN PROGRESS (to do: jwt)**_
+ * ~~/sync (protected) GET~~ **DONE ✔**
 
- * _/auth/login (public) POST - **IN PROGRESS (to do: jwt)**_
+ * ~~/auth/login (public) POST~~ **DONE ✔**
 
- * _/auth/signup (public) POST - **IN PROGRESS (to do: jwt)**_
+ * ~~_/auth/signup (public) POST~~ **DONE ✔**
 
  
 
@@ -45,7 +45,7 @@ start: run it with js
 
  * ~~The solution should have CORS enabled.~~ **DONE ✔**
 
- * Implement JWT
+ * ~~Implement JWT~~ **DONE ✔**
 
  * ~~Hash passwords.~~ **DONE ✔**
  
@@ -61,7 +61,7 @@ start: run it with js
 
  * Unit tests
 
- * Short-lived JWT tokens with a refresh token flow. 
+ * _Short-lived JWT tokens with a refresh token flow - **IN PROGRESS**_ (probably finished, need to test it more)
 
  * Deploy your backend service on any cloud provider.
 
