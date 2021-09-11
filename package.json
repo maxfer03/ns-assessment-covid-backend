@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./build/src",
-    "ts-start": "ts-node ./src/index.ts" ,
+    "ts-start": "ts-node ./src/index.ts",
     "dev": "nodemon ./src/index.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,12 +17,12 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "mongoose": "^6.0.5"
-    
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "nodemon": "^2.0.12",
+    "@types/express-handlebars": "^5.3.1",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   }
