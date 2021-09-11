@@ -1,4 +1,5 @@
 import {Router} from "express";
+import User from '../../models/user'
 
 const auth: Router = Router()
 
@@ -13,5 +14,6 @@ auth.post('/login', (req, res) => {
 auth.post('/signup', (req, res) => {
     return res.json('sign up')
 })
+
 
 export default auth
