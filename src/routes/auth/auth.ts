@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import { Iuser } from "../../utils/interfaces";
 import User from "../../models/user";
+import { hashPw } from "../../utils/hash";
 
 const auth: Router = Router();
 
@@ -21,13 +22,14 @@ auth.post("/signup", async (req: Request, res: Response) => {
     return res.status(400).send("ERROR: Invalid user.");
   } else {
     try {
-        const {username, password} = user
-        const newUser =  new User({username, password})
-        await newUser.save()
-      return res.json(`User ${user.username} created.`);
+      const { username, password } = user;
+      const hashedPw: string = await hashPw(password);
+      const newUser = new User({ username, password: hashedPw });
+      await newUser.save();
+      return res.json(`User ${username} created.`);
     } catch (e) {
       console.log(e);
-      return res.status(400).send(e)
+      return res.status(400).send(e);
     }
   }
 });

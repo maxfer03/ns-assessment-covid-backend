@@ -31,7 +31,7 @@ start: run it with js
 
  * _/auth/login (public) POST - **IN PROGRESS**_
 
- * _/auth/signup (public) POST - **IN PROGRESS**_
+ * _/auth/signup (public) POST - **IN PROGRESS (to do: jwt)**_
 
  
 
@@ -41,13 +41,15 @@ start: run it with js
 
  * Save RapidApi's data in personal mongoDB.
 
- * Create DB Schemas
+ * _Create DB Schemas - **IN PROGRESS**_
 
- * The solution should have CORS enabled.
+ * ~~The solution should have CORS enabled.~~ **DONE ✔**
 
  * Implement JWT
 
- * Hash passwords and validate it before issuing a JWT.
+ * ~~Hash passwords.~~ **DONE ✔**
+ 
+ * Validate Pw before issuing a JWT.
 
  * ~~The source code must be a GitHub repository publicly available containing backend code only.~~ **DONE ✔**
 
