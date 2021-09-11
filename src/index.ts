@@ -1,31 +1,45 @@
-
-require('dotenv').config()
-var morgan = require('morgan')
+require("dotenv").config();
+var morgan = require("morgan");
 import express from "express";
 import routes from "./routes/routes";
 import { authMiddleware, encodeSession } from "./utils/jwtUtils";
 import { connectToMongoAtlas } from "./db";
-import cors from 'cors';
+import cors from "cors";
 
-const app = express()
-const port: number = 3001
+const app = express();
+const port: number = 3001;
 
 //configs
-app.set('port', process.env.PORT || port)
-
+app.set("port", process.env.PORT || port);
 
 //middlewares
-app.use(express.json())
-app.use(morgan('dev'))
-app.use(cors())
-app.use(express.urlencoded({extended: false}))
-app.use('/', routes)
+app.use(express.json());
+app.use(morgan("dev"));
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use("/", routes);
 
-app.get('/', (req, res) => {
-    return res.send('COVID NS API')
-})
+app.get("/", (req, res) => {
+  return res.json({
+    msg: "NS Assessment Covid API",
+    endpoints: {
+      auth: {
+        login: "/auth/login         -> log in a user",
+        signup: "/auth/signup       -> register a user",
+      },
+      stats: {
+        msg: "Paths protected",
+        sync: "/stats/sync          -> syncs with external API",
+        all: "/stats/all            -> gets all country stats",
+        country: "/name/:country    -> gets specific country stats",
+        edit: "/edit/:country       -> edit specific country stats",
+      },
+      users: "/users (protected)    -> get all users",
+    },
+  });
+});
 
-app.listen(app.get('port'), () => {
-    console.log(`Server running on port ${app.get('port')}.`)
-})
-connectToMongoAtlas(process.env.DB_CONN_STRING)
+app.listen(app.get("port"), () => {
+  console.log(`Server running on port ${app.get("port")}.`);
+});
+connectToMongoAtlas(process.env.DB_CONN_STRING);

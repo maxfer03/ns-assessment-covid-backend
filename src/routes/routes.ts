@@ -12,24 +12,6 @@ routes.use("/auth", auth);
 
 routes.use('/stats', authMiddleware, stats)
 
-
-routes.get("/sync", authMiddleware, async (req: Request, res: Response) => {
-  await Stats.deleteMany({});
-  const covidSyncedStats: any = await requestCovidStats();
-  for (let country of covidSyncedStats.response) {
-    try {
-      country.country = country.country.toLowerCase();
-      const DBsyncedStats = new Stats(country);
-      await DBsyncedStats.save();
-      console.log("Country successfully added: ", country.country);
-    } catch (e) {
-      console.log(e);
-      return res.status(400).send("ERROR!");
-    }
-  }
-  return res.send('Stats sinced successfully.');
-});
-
 routes.get("/users", authMiddleware, async (req: Request, res: Response) => {
   const users = await User.find();
   return res.json(users);
