@@ -11,15 +11,6 @@ routes.use("/auth", auth);
 
 routes.use('/stats', stats)
 
-/* routes.get("/statistics", async (req: Request, res: Response) => {
-  const info: IcovidStats | string = await requestCovidStats();
-  return res.json(info);
-  //return res.json('stats')
-});
-
-routes.post("/statistics", (req: Request, res: Response) => {
-  return res.json("stats posted");
-}); */
 
 routes.get("/sync", async (req: Request, res: Response) => {
   await Stats.deleteMany({});
@@ -45,27 +36,3 @@ routes.get("/users", async (req: Request, res: Response) => {
 
 export default routes;
 
-/* const testObject = {
-    continent: 'eurasia',
-    country: 'polonia',
-    population: 111123,
-    cases: {
-      new: '10000',
-      active: 1323,
-      critical: 1323,
-      recovered: 13223,
-      "1M_pop": 'te00st',
-      total: 1323,
-    },
-    deaths: {
-      new: 'eeee',
-      "1M_pop": 'te2331st',
-      total: 123,
-    },
-    tests: {
-      "1M_pop": 'te322st',
-      total: 123,
-    },
-    day: "tes322t",
-    time: "tes322t",
-  }; */

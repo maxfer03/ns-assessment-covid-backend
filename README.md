@@ -25,7 +25,7 @@ start: run it with js
 
  * _/statistics (protected) GET - **IN PROGRESS (to do: jwt)**_
 
- * _/statistics/{country-id} (protected) GET, POST - **IN PROGRESS (to do: jwt)**_
+ * _/statistics/{country-id} (protected) GET, POST - **IN PROGRESS (to do: jwt, modify info)**_
 
  * _/sync (protected) GET - **IN PROGRESS (to do: jwt)**_
 
