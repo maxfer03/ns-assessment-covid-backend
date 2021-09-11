@@ -26,9 +26,9 @@ stats.post("/edit/:country", async (req: Request, res: Response) => {
   let { country } = req.params;
   const newInfo: IuserCountryInfo = req.body;
   country = country.toLowerCase();
-  
+
   await Stats.findOneAndUpdate({ country }, newInfo);
-  console.log(`${country} updated succesfully`)
+  console.log(`${country} updated succesfully`);
   return res.json({
     country,
     newInfo,
@@ -49,9 +49,7 @@ stats.get("/sync", async (req: Request, res: Response) => {
       return res.status(400).send("ERROR!");
     }
   }
-  return res.send('Stats sinced successfully.');
+  return res.send("Stats sinced successfully.");
 });
 
-
 export default stats;
-

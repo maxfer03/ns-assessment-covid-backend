@@ -10,7 +10,7 @@ const routes: Router = Router();
 
 routes.use("/auth", auth);
 
-routes.use('/stats', authMiddleware, stats)
+routes.use("/stats", authMiddleware, stats);
 
 routes.get("/users", authMiddleware, async (req: Request, res: Response) => {
   const users = await User.find();
@@ -18,4 +18,3 @@ routes.get("/users", authMiddleware, async (req: Request, res: Response) => {
 });
 
 export default routes;
-
