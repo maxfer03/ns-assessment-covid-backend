@@ -4,7 +4,7 @@ import { IcovidStats } from "./interfaces";
 export const requestCovidStats = async (): Promise<IcovidStats | string> => {
   try {
     const response = await axios.get(
-      "https://covid-193.p.rapidapi.com/statixstics",
+      "https://covid-193.p.rapidapi.com/statistics",
       {
         headers: {
           "x-rapidapi-host": "covid-193.p.rapidapi.com",
