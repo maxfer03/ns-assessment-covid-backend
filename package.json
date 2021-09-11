@@ -8,6 +8,7 @@
     "ts-start": "ts-node ./src/index.ts",
     "dev": "nodemon ./src/index.ts",
     "build": "tsc",
+    "clear": "del build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
