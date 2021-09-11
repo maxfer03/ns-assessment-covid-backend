@@ -37,6 +37,12 @@ export interface Itests {
   total:        number;
 }
 
+export interface IuserCountryInfo {
+  cases:        Icases;
+  deaths:       Ideaths;
+  tests:        Itests;
+}
+
 /////////////////////////
 export interface Iuser {
    username:     string;
