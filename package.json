@@ -21,6 +21,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
+    "jwt-simple": "^0.5.6",
     "mongodb": "^4.1.1",
     "mongoose": "^6.0.5"
   },
@@ -29,6 +30,7 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/express-handlebars": "^5.3.1",
+    "@types/jwt-simple": "^0.5.33",
     "@types/mongoose": "^5.11.97",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
