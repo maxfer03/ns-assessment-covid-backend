@@ -1,6 +1,7 @@
 import {Router} from "express";
 import auth from "./auth/auth";
-import { requestCovidInfo } from "../utils/axios";
+import { requestCovidStats } from "../utils/axios";
+import { IcovidStats } from "../utils/interfaces";
 
 const routes: Router = Router()
 
@@ -8,7 +9,7 @@ const routes: Router = Router()
 routes.use('/auth', auth)
 
 routes.get('/statistics', async (req, res) => {
-    const info: any = await requestCovidInfo('statistics')
+    const info: IcovidStats = await requestCovidStats()
     return res.json(info)
     //return res.json('stats')
 })
