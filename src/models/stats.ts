@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+/* import { ObjectId } from "mongodb";
 
 export default class Stat {
   constructor(
@@ -6,3 +6,4 @@ export default class Stat {
     public id?: ObjectId
   ) {}
 }
+ */

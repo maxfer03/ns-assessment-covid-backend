@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.4",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/express-handlebars": "^5.3.1",
+    "@types/mongoose": "^5.11.97",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",

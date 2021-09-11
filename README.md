@@ -39,6 +39,10 @@ start: run it with js
 
  * _Use ES6 or Typescript syntax - **IN PROGRESS**_
 
+ * Save RapidApi's data in personal mongoDB.
+
+ * Create DB Schemas
+
  * The solution should have CORS enabled.
 
  * Implement JWT
