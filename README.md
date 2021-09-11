@@ -25,7 +25,7 @@ start: run it with js
 
  * ~~/statistics (protected) GET~~ **DONE ✔**
 
- * ~~/statistics/{country-id}~~ (protected) GET, POST - **DONE ✔**
+ * ~~/statistics/{country-id} (protected) GET, POST~~ **DONE ✔**
 
  * ~~/sync (protected) GET~~ **DONE ✔**
 
