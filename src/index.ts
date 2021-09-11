@@ -1,5 +1,8 @@
+
+require('dotenv').config()
 import express from "express";
 import routes from "./routes/routes";
+import { connectToMongoAtlas } from "./db";
 
 const app = express()
 const port: number = 3001
@@ -20,3 +23,4 @@ app.get('/', (req, res) => {
 app.listen(app.get('port'), () => {
     console.log(`Server running on port ${app.get('port')}.`)
 })
+connectToMongoAtlas(process.env.DB_CONN_STRING)
