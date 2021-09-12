@@ -56,7 +56,14 @@ auth.post("/signup", async (req: Request, res: Response) => {
       const newUser = new User({ username, password: hashedPw });
       await newUser.save();
       //here goes the jwt
-      return res.json(`User ${username} created.`);
+      const session = encodeSession(secretEnv, {
+        username: user.username,
+        dateCreated: Date.now(),
+      });
+      return res.json({
+        msg: `${username} logged in.`,
+        token: session,
+      });
     } catch (e) {
       console.log(e);
       return res.status(400).send(e);
