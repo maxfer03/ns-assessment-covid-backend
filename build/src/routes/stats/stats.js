@@ -15,11 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const axios_1 = require("../../utils/axios");
 const stats_1 = __importDefault(require("../../models/stats"));
+const sort_1 = require("../../utils/sort");
 const stats = (0, express_1.Router)();
 stats.get("/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dbInfo = yield stats_1.default.find();
-        return res.json(dbInfo);
+        let sortedByContinent = dbInfo.sort(sort_1.compareContinent);
+        return res.json(sortedByContinent);
     }
     catch (e) {
         console.log(e);
