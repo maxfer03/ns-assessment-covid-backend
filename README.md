@@ -61,7 +61,7 @@ start: run it with js
 
  * Unit tests
 
- * _Short-lived JWT tokens with a refresh token flow - **IN PROGRESS**_ (probably finished, need to test it more)
+ * ~~Short-lived JWT tokens with a refresh token flow~~ **DONE ✔**
 
  * Deploy your backend service on any cloud provider.
 
