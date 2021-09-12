@@ -37,8 +37,6 @@ start: run it with js
 
 ### Requirements:
 
- * _Use ES6 or Typescript syntax - **IN PROGRESS**_
-
  * ~~Save RapidApi's data in personal mongoDB.~~ **DONE ✔**
 
  * ~~Create DB Schemas.~~ **DONE ✔**
@@ -63,7 +61,7 @@ start: run it with js
 
  * ~~Short-lived JWT tokens with a refresh token flow~~ **DONE ✔**
 
- * Deploy your backend service on any cloud provider.
+ * ~~Deploy your backend service on any cloud provider.~~**DONE ✔**
 
 
 

@@ -1,14 +1,20 @@
 import { Router, Request, Response } from "express";
 import { requestCovidStats } from "../../utils/axios";
-import { IcovidStats, IuserCountryInfo } from "../../utils/interfaces";
+import {
+  IcovidStats,
+  IDBcountryInfo,
+  IuserCountryInfo,
+} from "../../utils/interfaces";
 import Stats from "../../models/stats";
+import { compareContinent } from "../../utils/sort";
 
 const stats: Router = Router();
 
 stats.get("/all", async (req: Request, res: Response) => {
   try {
-    const dbInfo = await Stats.find();
-    return res.json(dbInfo);
+    const dbInfo: any = await Stats.find();
+    let sortedByContinent: [IDBcountryInfo] = dbInfo.sort(compareContinent);
+    return res.json(sortedByContinent);
   } catch (e) {
     console.log(e);
     return res.status(400).send("ERROR!");

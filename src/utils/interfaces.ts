@@ -19,6 +19,19 @@ export interface IcountryInfo {
   time:         TimeRanges | string;
 }
 
+export interface IDBcountryInfo {
+  _id:          string;
+  __v:          number;
+  continent:    string;
+  country:      string;
+  population:   number;
+  cases:        Icases;
+  deaths:       Ideaths;
+  tests:        Itests;
+  day:          Date | string;
+  time:         TimeRanges | string;
+}
+
 export interface Icases {
   new:          string;
   active:       number;
