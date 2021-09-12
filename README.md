@@ -37,8 +37,6 @@ start: run it with js
 
 ### Requirements:
 
- * _Use ES6 or Typescript syntax - **IN PROGRESS**_
-
  * ~~Save RapidApi's data in personal mongoDB.~~ **DONE ✔**
 
  * ~~Create DB Schemas.~~ **DONE ✔**
